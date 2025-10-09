@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_loan_risk  # <--- NOTE: MUST USE YOUR ACTUAL MODEL NAME!
+  - name: stg_loan_risk # <--- NOTE: MUST USE YOUR ACTUAL MODEL NAME!
     description: "Cleans and standardizes raw loan data from BigQuery."
     columns:
       - name: loan_id
