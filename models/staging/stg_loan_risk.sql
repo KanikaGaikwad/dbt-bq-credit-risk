@@ -1,3 +1,12 @@
+with base as (
+    select *,
+        dense_rank() over (
+            partition by emp_title, CAST(annual_inc AS STRING), emp_length
+            order by parse_date('%b-%Y', issue_d)
+        ) as client_id
+    from {{ source('raw_lending_club','credit_risk_raw') }}
+)
+
 select
     cast(id as STRING) as loan_id,
     -- Parse loan term from string to integer
@@ -22,9 +31,10 @@ select
     open_acc,
     delinq_2yrs,
     pub_rec as public_records,
-    loan_status
-from {{ source('raw_lending_club','credit_risk_raw')}}
-where id is NOT NULL;
+    loan_status,
+    client_id
+from base
+where id is NOT NULL
 
 
 
