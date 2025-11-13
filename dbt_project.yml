@@ -38,8 +38,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_bq_credit_risk:
     # Applies to all files under models/example/
-    example:
-      +materialized: table
     staging:
       materialized: view
     intermediate:

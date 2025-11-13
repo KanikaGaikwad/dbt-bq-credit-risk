@@ -1,10 +1,10 @@
-with loans as (
+WITH loans AS (
     -- Reference from the cleaned staging model
-    select *
-    from {{ ref('stg_loan_risk')}}
+    SELECT *
+    FROM {{ ref('stg_loan_risk') }}
 )
 
-select
+SELECT
     -- Primary keys and Core Dimensions
     loan_id,
     loan_issue_date,
@@ -20,31 +20,34 @@ select
     loan_status,
 
     -- Strategic KPI 1: Client Financial Burden Proxy
-    -- Measure how leveraged the client is relative to their income
-    Round(
-        coalesce(safe_divide(loan_amount, annual_income),0),
+    ROUND(
+        COALESCE(SAFE_DIVIDE(loan_amount, annual_income), 0),
         3
-    ) as client_debt_to_income_proxy,
+    ) AS client_debt_to_income_proxy,
 
     -- Strategic KPI 2: Monthly Capital Exposure
-    -- Estimates how much capital the firm earns monthly from this loan
-    Round(
-        coalesce(safe_divide((loan_amount*(interest_rate_pct/100)), term_months),0),
+    ROUND(
+        COALESCE(SAFE_DIVIDE((loan_amount * (interest_rate_pct / 100)), term_months), 0),
         2
-    ) as monthly_capital_exposure_kpi,
+    ) AS monthly_capital_exposure_kpi,
 
     -- Strategic KPI 3: Client Tenure
-    -- Duration of Loan activity in months
-    Date_diff(last_payment_date, loan_issue_date, month) as months_active,
+    DATE_DIFF(
+            COALESCE(last_payment_date, DATE '2018-12-31'),
+            COALESCE(loan_issue_date, DATE '2007-01-01'),
+            MONTH
+        ) AS months_active
+    ,
 
     -- Strategic KPI 4: Debt-to-Income Band
-    case
-        when debt_to_income_ratio >40 then 'High Burden'
-        when debt_to_income_ratio between 20 and 40 then 'Medium Burden'
-        else 'Low Burden'
-    end as dti_band
+    CASE
+        WHEN debt_to_income_ratio > 40 THEN 'High Burden'
+        WHEN debt_to_income_ratio BETWEEN 20 AND 40 THEN 'Medium Burden'
+        ELSE 'Low Burden'
+    END AS dti_band
 
-from loans; 
+FROM loans;
+
 
 
 -- with loans as (

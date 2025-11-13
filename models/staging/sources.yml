@@ -6,3 +6,10 @@ sources:
     schema: raw_data
     tables:
       - name: credit_risk_raw
+        description: "Raw Lending Club Loan data"
+        columns:
+        - name: id
+          description: "Unique loan identifier"
+          tests:
+            - not_null
+            - unique

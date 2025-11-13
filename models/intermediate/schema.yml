@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: int_kpis2
+    description: "Intermediate model that engineers strategic KPIs for Client risk and exposure analysis"
+    columns:
+      - name: loan_id
+        description: "Unique identifier for each loan"
+        tests:
+          - not_null
+          - unique
+
+      - name: client_debt_to_income_proxy
+        description: "Ratio of loan amount to annual income, used to assess client financial burden"
+        tests:
+          - not_null
+
+      - name: months_active
+        description: "Number of months between loan issue and last payment"
+        tests:
+          - not_null
+
+      - name: dti_band
+        description: "Categorical risk band based on debt-to-income ratio"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - "High Burden"
+                - "Medium Burden"
+                - "Low Burden"
