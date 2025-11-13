@@ -28,7 +28,7 @@ SELECT
         ELSE FALSE
     END AS high_value_flag
 
-FROM kpis;
+FROM kpis
 
 
 

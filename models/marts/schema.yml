@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: fct_m_m_client_risk
+    description: "Mart model that segments clients by risk and value using engineered KPIs"
+    columns:
+      - name: loan_id
+        description: "Unique identifier for each loan"
+        tests:
+          - not_null
+          - unique
+
+      - name: client_risk_segment
+        description: "Client risk category based on DTI band and tenure"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - "High Risk - New"
+                - "High Risk - Long Term"
+                - "Medium Risk"
+                - "Low Risk"
+
+      - name: high_value_flag
+        description: "Boolean flag for clients with monthly exposure above $500"
+        tests:
+          - not_null
+
+      - name: monthly_capital_exposure_kpi
+        description: "Estimated monthly revenue exposure from the loan"
+        tests:
+          - not_null
+
+      - name: client_debt_to_income_proxy
+        description: "Ratio of loan amount to annual income"
+        tests:
+          - not_null
+
+      - name: months_active
+        description: "Number of months between loan issue and last payment"
+        tests:
+          - not_null
+
+      - name: dti_band
+        description: "Categorical risk band based on debt-to-income ratio"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - "High Burden"
+                - "Medium Burden"
+                - "Low Burden"
