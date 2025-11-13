@@ -18,6 +18,7 @@ This project simulates a client segmentation pipeline inspired by real-world wea
 
 | Model | Type | Description |
 |-------|------|-------------|
+| `stg_loan_risk` | Staging | Cleans raw data, applies types, parses dates |
 | `int_kpis2` | Intermediate | Enriches raw data with KPIs and client attributes |
 | `dim_client` | Dimension | Contains client-level attributes for segmentation |
 | `dim_time` | Dimension | Calendar spine for time-based joins |
