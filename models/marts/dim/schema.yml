@@ -7,3 +7,12 @@ models:
         tests:
           - not_null
           - unique
+
+  - name: dim_time
+    description: "Time dimension table for calendar-based joins and analysis"
+    columns:
+      - name: date
+        description: "Primary key for time dimension"
+        tests:
+          - not_null
+          - unique
