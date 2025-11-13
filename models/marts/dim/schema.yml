@@ -1,0 +1,9 @@
+models:
+  - name: dim_client
+    description: "Dimension table contain client-level attributes"
+    columns:
+      - name: client_id
+        description: "Unique Identifier for each client"
+        tests:
+          - not_null
+          - unique

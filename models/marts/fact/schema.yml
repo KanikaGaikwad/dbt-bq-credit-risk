@@ -1,0 +1,26 @@
+models:
+  - name: fact_loans
+    description: "Fact table containing loan-level metrics and KPIs"
+    columns:
+      - name: loan_id
+        description: "Unique identifier for each loan"
+        tests:
+          - unique
+          - not_null
+
+      - name: client_id
+        description: "FK to dim_client"
+        tests:
+          - not_null
+          - relationships:
+              field: client_id
+              to: ref('dim_client')
+
+      - name: loan_issue_date
+        description: "FK to dim_time"
+        tests: 
+          - not_null
+          - relationships:
+              field: date
+              to: ref('dim_time')
+

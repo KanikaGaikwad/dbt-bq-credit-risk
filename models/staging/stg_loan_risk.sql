@@ -34,7 +34,9 @@ select
     loan_status,
     client_id
 from base
-where id is NOT NULL
+where id is not null
+  and parse_date('%b-%Y', issue_d) is not null
+
 
 
 
