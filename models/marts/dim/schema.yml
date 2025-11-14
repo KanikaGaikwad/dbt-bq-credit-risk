@@ -1,6 +1,8 @@
+version: 2
+
 models:
   - name: dim_client
-    description: "Dimension table contain client-level attributes"
+    description: "Dimension table containing client-level attributes"
     columns:
       - name: client_id
         description: "Unique Identifier for each client"
@@ -16,3 +18,16 @@ models:
         tests:
           - not_null
           - unique
+
+  - name: dim_purpose
+    description: "Dimension table that categorizes loan purposes into strategic segments"
+    columns:
+      - name: purpose
+        description: "Original loan purpose from Lending Club data"
+        tests:
+          - not_null
+
+      - name: purpose_category
+        description: "Mapped category for strategic segmentation (e.g., Debt Management, Business)"
+        tests:
+          - not_null
