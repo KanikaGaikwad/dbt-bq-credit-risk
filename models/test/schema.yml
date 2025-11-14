@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: test_model
+    description: "{{ doc('test_segment') }}"
+    columns:
+      - name: test_column
+        description: "Just a test column"
