@@ -11,17 +11,17 @@ models:
           - unique
 
       - name: client_debt_to_income_proxy
-        description: "Ratio of loan amount to annual income, used to assess client financial burden"
+        description: "{{ doc('client_debt_to_income_proxy') }}"
         tests:
           - not_null
 
       - name: months_active
-        description: "Number of months between loan issue and last payment"
+        description: "{{ doc('months_acitvie') }}"
         tests:
           - not_null
 
       - name: dti_band
-        description: "Categorical risk band based on debt-to-income ratio"
+        description: "{{ doc('dti_band')}}"
         tests:
           - not_null
           - accepted_values:
