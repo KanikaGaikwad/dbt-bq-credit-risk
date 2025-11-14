@@ -32,7 +32,7 @@ This document outlines the strategic mapping of engineered KPIs to core wealth d
 ---
 
 ## 🧮 KPI 4: `dti_band`
-{% dti_band %}
+{% doc dti_band %}
 - **Definition**: Categorical banding of DTI proxy
 - **Logic**:
   - High Burden: DTI > 0.5
