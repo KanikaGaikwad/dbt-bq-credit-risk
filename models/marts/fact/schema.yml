@@ -13,14 +13,15 @@ models:
         tests:
           - not_null
           - relationships:
-              field: client_id
-              to: ref('dim_clients')
+              arguments:
+                to: ref('dim_clients')
+                field: client_id
 
       - name: loan_issue_date
         description: "FK to dim_time"
         tests: 
           - not_null
           - relationships:
-              field: date
-              to: ref('dim_time')
-
+              arguments:
+                to: ref('dim_time')
+                field: date

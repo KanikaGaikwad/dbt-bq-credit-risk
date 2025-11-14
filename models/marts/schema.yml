@@ -23,27 +23,27 @@ models:
                   - "Low Risk"
 
       - name: high_value_flag
-        description: "{{ doc('high_value_flag') }}"
+        description: "Flags clients with high monthly capital exposure"
         tests:
           - not_null
 
       - name: monthly_capital_exposure_kpi
-        description: "{{ doc('monthly_capital_exposure') }}"
+        description: "Monthly capital exposure calculated as loan amount divided by term in months"
         tests:
           - not_null
 
       - name: client_debt_to_income_proxy
-        description: "{{ doc('client_debt_to_income_proxy') }}"
+        description: "Proxy for debt-to-income ratio, calculated as (installment * 12) / annual income"
         tests:
           - not_null
 
       - name: months_active
-        description: "{{ doc('months_active') }}"
+        description: "Client tenure in months since loan issuance"
         tests:
           - not_null
 
       - name: dti_band
-        description: "{{ doc('dti_band') }}"
+        description: "Categorical banding of debt-to-income proxy"
         tests:
           - not_null
           - accepted_values:
