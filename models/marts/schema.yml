@@ -11,7 +11,7 @@ models:
           - unique
 
       - name: client_risk_segment
-        description: "Client risk category based on DTI band and tenure"
+        description: "{{ doc('client_risk_segment') }}"
         tests:
           - not_null
           - accepted_values:
@@ -22,27 +22,27 @@ models:
                 - "Low Risk"
 
       - name: high_value_flag
-        description: "Boolean flag for clients with monthly exposure above $500"
+        description: "{{ doc('high_value_flag') }}"
         tests:
           - not_null
 
       - name: monthly_capital_exposure_kpi
-        description: "Estimated monthly revenue exposure from the loan"
+        description: "{{ doc('monthly_capital_exposure') }}"
         tests:
           - not_null
 
       - name: client_debt_to_income_proxy
-        description: "Ratio of loan amount to annual income"
+        description: "{{ doc('client_debt_to_income_proxy') }}"
         tests:
           - not_null
 
       - name: months_active
-        description: "Number of months between loan issue and last payment"
+        description: "{{ doc('months_active') }}"
         tests:
           - not_null
 
       - name: dti_band
-        description: "Categorical risk band based on debt-to-income ratio"
+        description: "{{ doc('dti_band') }}"
         tests:
           - not_null
           - accepted_values:
