@@ -21,16 +21,6 @@ Categorical banding of debt-to-income proxy:
 Used to simplify risk communication and support rule-based segmentation.
 {% enddoc %}
 
-{% doc client_risk_segment %}
-Combines DTI band and tenure to classify client risk:
-- High Risk – New: High Burden + <12 months
-- High Risk – Long Term: High Burden + ≥12 months
-- Medium Risk: Medium Burden
-- Low Risk: Low Burden
-Used for targeted interventions and client segmentation.
-{% enddoc %}
-
-
 {% doc high_value_flag %}
 Flags clients with high monthly capital exposure (`monthly_capital_exposure_kpi >= 500`).  
 Used to prioritize clients for high-touch advisory services.

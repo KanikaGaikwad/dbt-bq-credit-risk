@@ -11,7 +11,7 @@ models:
           - unique
 
       - name: client_risk_segment
-        description: "{{ doc('client_risk_segment') }}"
+        description: "Combines DTI band and tenure to classify client risk"
         tests:
           - not_null
           - accepted_values:

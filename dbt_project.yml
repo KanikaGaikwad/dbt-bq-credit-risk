@@ -10,7 +10,8 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
-docs-paths: ["models/docs"]  # ✅ This is correct for your client_segmentation_docs.md file
+docs-paths: ["models/marts/fact"]
+  # ✅ This is correct for your client_segmentation_docs.md file
 
 target-path: "target"
 clean-targets:
