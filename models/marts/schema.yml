@@ -47,7 +47,8 @@ models:
         tests:
           - not_null
           - accepted_values:
-              values:
-                - "High Burden"
-                - "Medium Burden"
-                - "Low Burden"
+              arguments:
+                values:
+                  - "High Burden"
+                  - "Medium Burden"
+                  - "Low Burden"

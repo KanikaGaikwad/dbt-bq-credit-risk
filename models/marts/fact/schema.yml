@@ -14,7 +14,7 @@ models:
           - not_null
           - relationships:
               field: client_id
-              to: ref('dim_client')
+              to: ref('dim_clients')
 
       - name: loan_issue_date
         description: "FK to dim_time"
