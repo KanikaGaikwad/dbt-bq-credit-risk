@@ -16,7 +16,7 @@ models:
           - not_null
 
       - name: months_active
-        description: "{{ doc('months_acitvie') }}"
+        description: "{{ doc('months_active') }}"
         tests:
           - not_null
 
@@ -24,9 +24,10 @@ models:
         description: "{{ doc('dti_band')}}"
         tests:
           - not_null
-          - accepted_values:
-              args:
+          - accepted_values: 
+              arguments:
                 values:
                   - "High Burden"
                   - "Medium Burden"
                   - "Low Burden"
+                

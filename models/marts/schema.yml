@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fct_m_m_client_risk
+  - name: fct_client_risk
     description: "Mart model that segments clients by risk and value using engineered KPIs"
     columns:
       - name: loan_id
@@ -15,11 +15,12 @@ models:
         tests:
           - not_null
           - accepted_values:
-              values:
-                - "High Risk - New"
-                - "High Risk - Long Term"
-                - "Medium Risk"
-                - "Low Risk"
+              arguments:
+                values:
+                  - "High Risk - New"
+                  - "High Risk - Long Term"
+                  - "Medium Risk"
+                  - "Low Risk"
 
       - name: high_value_flag
         description: "{{ doc('high_value_flag') }}"
